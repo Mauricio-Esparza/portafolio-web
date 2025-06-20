@@ -24,58 +24,75 @@
     </nav>
   </header>
 
-  <main>
-    <section id="sobremi" class="sobremi">
-      <article class="container-sobremi">
-        <img
-          class="img-perfil"
-          src="./assets/IMG_20240424_152643247.jpg"
-          alt="Fotografía de Mauricio Esparza"
-          width="200"
-          height="200"
-        />
-        <h2>
-          Soy estudiante de la Tecnicatura en Programación en la Universidad Tecnológica Nacional (UTN),
-          disfruto programar y desarrollar.
-        </h2>
-      </article>
-    </section>
+  <div class="main-content">
+    <main>
+      <section id="sobremi" class="sobremi">
+        <article class="container-sobremi">
+          <img
+            class="img-perfil"
+            src="./assets/IMG_20240424_152643247.jpg"
+            alt="Fotografía de Mauricio Esparza"
+            width="200"
+            height="200"
+          />
+          <h2>
+            Soy estudiante de la Tecnicatura en Programación en la Universidad Tecnológica Nacional (UTN),
+            disfruto programar y desarrollar.
+          </h2>
+        </article>
+      </section>
 
-    <section id="experiencia" class="experiencia">
-      <article class="container-experiencia">
-        <h2>Experiencia Laboral</h2>
-        <h3>Derby S.A</h3>
-        <h4>Septiembre 2015 a la fecha</h4>
-        <p>
-          Venta de poliproductos, atención al público, desarrollo de habilidades blandas, trabajo en equipo,
-          manejo de grupos, generación de cartera de clientes.
-        </p>
-      </article>
-    </section>
+      <section id="experiencia" class="experiencia">
+        <article class="container-experiencia">
+          <h2>Experiencia Laboral</h2>
+          <h3>Derby S.A</h3>
+          <h4>Septiembre 2015 a la fecha</h4>
+          <p>
+            Venta de poliproductos, atención al público, desarrollo de habilidades blandas, trabajo en equipo,
+            manejo de grupos, generación de cartera de clientes.
+          </p>
+        </article>
+      </section>
 
-    <section id="estudios" class="estudios">
-      <article class="container-estudios">
-        <h2>Mis Estudios</h2>
-        <p>
-          Secundaria completa - Escuela Mario Pérez Elizalde 4-150, curso en Platzi "Curso de pensamiento lógico",
-          Tecnicatura Universitaria en Programación (en curso).
-        </p>
-      </article>
-    </section>
+      <section id="estudios" class="estudios">
+        <article class="container-estudios">
+          <h2>Mis Estudios</h2>
+          <p>
+            Secundaria completa - Escuela Mario Pérez Elizalde 4-150, curso en Platzi "Curso de pensamiento lógico",
+            Tecnicatura Universitaria en Programación (en curso).
+          </p>
+        </article>
+      </section>
 
-    <section id="contacto" class="contacto">
-      <article class="container-contacto">
-        <h2>Contacto</h2>
-        <p>
-          Podés escribirme a
-          <a href="mailto:mauro.esparza.7@gmail.com">mauro.esparza.7@gmail.com</a> o encontrarme en redes sociales.
-        </p>
-      </article>
-    </section>
-  </main>
+      <section id="contacto" class="contacto">
+        <article class="container-contacto">
+          <h2>Contacto</h2>
+          <p>
+            Podés escribirme a
+            <a href="mailto:mauro.esparza.7@gmail.com">mauro.esparza.7@gmail.com</a> o encontrarme en redes sociales.
+          </p>
+        </article>
+      </section>
+    </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 Mauricio Esparza. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+  function ajustarMargen() {
+    const header = document.querySelector('header');
+    const mainContent = document.querySelector('.main-content');
+    const alturaHeader = header.offsetHeight;
+
+    
+    const margenAplicado = Math.min(alturaHeader, 160);
+    mainContent.style.marginTop = margenAplicado + 'px';
+  }
+
+  window.addEventListener('load', ajustarMargen);
+  window.addEventListener('resize', ajustarMargen);
+</script>
 </body>
 </html>
