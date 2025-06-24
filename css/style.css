@@ -1,11 +1,14 @@
-/* --- Estilos Generales --- */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  padding-top: 160px;
   background: linear-gradient(to right, #2e3c48, #536976, #292e49);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
+  padding-top: 100px;
 }
 
 header {
@@ -16,7 +19,7 @@ header {
   backdrop-filter: blur(5px);
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -46,6 +49,7 @@ header {
   font-family: 'Roboto Condensed', sans-serif;
   transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
+  width: auto;
 }
 
 .navigation li:hover {
@@ -54,13 +58,14 @@ header {
 }
 
 .navigation li:hover a {
-  color: #003366;
+  color: black;
 }
 
 .navigation li a {
   text-decoration: none;
   color: white;
   display: block;
+  transition: color 0.3s ease;
 }
 
 .sobremi {
@@ -83,6 +88,7 @@ header {
   height: 200px;
   box-shadow: 0 0 10px #333;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .img-perfil:hover {
@@ -124,16 +130,84 @@ footer {
   background: rgba(0, 0, 0, 0.3);
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   margin-top: 2rem;
 }
 
-/* --- Responsive --- */
+.proyectos {
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: azure;
+}
+
+.container-proyectos {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.proyecto {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  animation: aparecerDeslizar 0.8s ease forwards;
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.proyecto h3 {
+  font-size: 1.6rem;
+  color: #aad6ec;
+  margin-top: 0;
+}
+
+.proyecto p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.proyecto a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #0870e2;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.proyecto a:hover {
+  background-color: #003366;
+  color: #aad6ec;
+}
+
+@keyframes aparecerDeslizar {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 767px) {
   body {
-    padding-top: 220px;
+    padding-top: 0;
   }
 
   .navigation {
@@ -142,20 +216,21 @@ footer {
     align-items: center;
   }
 
+  .navigation li {
+    width: 80%;
+    text-align: center;
+  }
+
   .sobremi {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 1rem;
     width: 100%;
-    box-sizing: border-box;
   }
 
   .container-sobremi {
     max-width: 90vw;
     margin: 0 auto;
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -166,9 +241,6 @@ footer {
     width: 150px;
     height: 150px;
     margin-bottom: 1rem;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #333;
-    transition: transform 0.3s ease;
   }
 
   .container-experiencia,
@@ -181,5 +253,28 @@ footer {
 
   .nombre {
     font-size: 1.5rem;
+  }
+
+  .lista-estudios {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .lista-estudios li {
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+    color: azure;
+  }
+
+  .lista-estudios li::before {
+    content: "\1F4D8"; /* Emoji libro */
+    position: absolute;
+    left: 0;
+  }
+
+  .main-content {
+    margin-top: 100px;
   }
 }

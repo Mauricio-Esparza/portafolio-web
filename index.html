@@ -13,7 +13,7 @@
 <body>
   <header>
     <h1 class="nombre">Mauricio Esparza - Técnico en Programación</h1>
-    <nav>
+    <nav aria-label="Menú principal">
       <ul class="navigation">
         <li><a href="#sobremi">Sobre Mí</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
@@ -57,10 +57,30 @@
       <section id="estudios" class="estudios">
         <article class="container-estudios">
           <h2>Mis Estudios</h2>
-          <p>
-            Secundaria completa - Escuela Mario Pérez Elizalde 4-150, curso en Platzi "Curso de pensamiento lógico",
-            Tecnicatura Universitaria en Programación (en curso).
-          </p>
+          <ul class="lista-estudios">
+            <li>Secundaria completa - Escuela Mario Pérez Elizalde 4-150</li>
+            <li>Curso en Platzi: Pensamiento lógico</li>
+            <li>Tecnicatura Universitaria en Programación (en curso), Universidad Tecnologica Nacional (UTN)</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="proyectos" class="proyectos">
+        <article class="container-proyectos">
+          <h2>Proyectos Destacados</h2>
+
+          <div class="proyecto">
+            <h3>BookSwap</h3>
+            <p>Plataforma ficticia de intercambio de libros entre lectores. Incluye filtros por autor/género, animaciones con CSS y layout responsive.</p>
+            <a href="#">Ver más</a>
+          </div>
+
+          <div class="proyecto">
+            <h3>Malware Tracker</h3>
+            <p>Dashboard informativo sobre tipos de malware, con tablas comparativas y datos visuales. Ideal para demostrar conocimientos en ciberseguridad y diseño técnico.</p>
+            <a href="#">Ver más</a>
+          </div>
+
         </article>
       </section>
 
@@ -80,15 +100,17 @@
     <p>&copy; 2025 Mauricio Esparza. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
+<script>
   function ajustarMargen() {
     const header = document.querySelector('header');
     const mainContent = document.querySelector('.main-content');
-    const alturaHeader = header.offsetHeight;
 
-    
-    const margenAplicado = Math.min(alturaHeader, 160);
-    mainContent.style.marginTop = margenAplicado + 'px';
+    if (header && mainContent) {
+      const estiloHeader = getComputedStyle(header);
+      const margenInferior = parseInt(estiloHeader.marginBottom || 0);
+      const totalAltura = header.offsetHeight + margenInferior;
+      mainContent.style.marginTop = `${totalAltura}px`;
+    }
   }
 
   window.addEventListener('load', ajustarMargen);
